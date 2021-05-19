@@ -1,0 +1,42 @@
+Start
+
+1. To allow various APIs to communicate with each other, OSI (open systems interconnection model) is used. It has 7 layers:
+- `Application/Presentation/Session/Transport/Network/Data Link/Physical`. Usually, developers
+use only `Application` layer
+
+HTTP is the most famous `Application` level protocol. For better understanding of `Application` layer, let's introduce 2 more layers above: `web service` & `message formatting` layers.
+
+`Web service` layer refers to protocols that sit on top of `Application` layer and determine
+the format in which APIs are sent and receive: SOAP (transfers data in XML format and works over HTTP or SMTP) and REST (leverages HTTP verbs to manage resources)
+
+`Message formatting`: here protocols set up languages that are used to exchange data. Most common formats are XML and JSON
+
+REST Constraints:
+1. client-server model
+2. stateless: server doesn't retain info about the client. Each request is independent
+3. cacheable
+4. uniform interface (identical communication. I.e. between laptop/mobile device etc)
+5. layered system
+6. code on demand
+
+
+HTTP request & response
+
+HTTP request consists of:
+1. header: request line (HTTP verb, URI, HTTP version number), optional request headers
+2. blank line
+2. body (optional)
+
+HTTP response consists of:
+1. status line
+2. headers
+3. response body (piece of HTML)
+
+1. Status line: HTTP/1.0 200 OK or HTTP/1.1 301 Moved Permanently
+2. Headers: sort of metadata for the response (Ex. Location, Content-type). 
+Note: cookie is a header to make user stay logged in. `Set-Cookie` header
+3. Response body: if the Request was successful -> it's a copy of the resource client
+asked for (i.e. web page/image etc). If error -> error appears on the screen
+
+curl http://localhost:5000/readHello
+curl -X PUT http://localhost:5000/updateHello
